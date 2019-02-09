@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CC816A09EE81D234C4EEEC5 /* Pods_DroniSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D73788023D2FE7E8A0B4D3 /* Pods_DroniSocket.framework */; };
 		6756BC42220EA90300A404E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6756BC41220EA90300A404E3 /* AppDelegate.swift */; };
 		6756BC44220EA90300A404E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6756BC43220EA90300A404E3 /* ViewController.swift */; };
 		6756BC47220EA90300A404E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6756BC45220EA90300A404E3 /* Main.storyboard */; };
 		6756BC49220EA90900A404E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6756BC48220EA90900A404E3 /* Assets.xcassets */; };
 		6756BC4C220EA90900A404E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6756BC4A220EA90900A404E3 /* LaunchScreen.storyboard */; };
+		6756BC54220EA94300A404E3 /* SuperSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6756BC53220EA94300A404E3 /* SuperSocketManager.swift */; };
+		6756BC56220EB62600A404E3 /* TrackingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6756BC55220EB62600A404E3 /* TrackingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2AECAB017C8AC14FC1CD0553 /* Pods-DroniSocket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroniSocket.debug.xcconfig"; path = "Target Support Files/Pods-DroniSocket/Pods-DroniSocket.debug.xcconfig"; sourceTree = "<group>"; };
+		2BEC5EA2E29B3EB54585B10B /* Pods-DroniSocket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DroniSocket.release.xcconfig"; path = "Target Support Files/Pods-DroniSocket/Pods-DroniSocket.release.xcconfig"; sourceTree = "<group>"; };
 		6756BC3E220EA90300A404E3 /* DroniSocket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DroniSocket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6756BC41220EA90300A404E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6756BC43220EA90300A404E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,9 @@
 		6756BC48220EA90900A404E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6756BC4B220EA90900A404E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6756BC4D220EA90900A404E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6756BC53220EA94300A404E3 /* SuperSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperSocketManager.swift; sourceTree = "<group>"; };
+		6756BC55220EB62600A404E3 /* TrackingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingView.swift; sourceTree = "<group>"; };
+		69D73788023D2FE7E8A0B4D3 /* Pods_DroniSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DroniSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CC816A09EE81D234C4EEEC5 /* Pods_DroniSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +49,8 @@
 			children = (
 				6756BC40220EA90300A404E3 /* DroniSocket */,
 				6756BC3F220EA90300A404E3 /* Products */,
+				FF51C1EB34F59A6CA916375F /* Pods */,
+				F8193F57683D0573166CC12B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +71,27 @@
 				6756BC48220EA90900A404E3 /* Assets.xcassets */,
 				6756BC4A220EA90900A404E3 /* LaunchScreen.storyboard */,
 				6756BC4D220EA90900A404E3 /* Info.plist */,
+				6756BC53220EA94300A404E3 /* SuperSocketManager.swift */,
+				6756BC55220EB62600A404E3 /* TrackingView.swift */,
 			);
 			path = DroniSocket;
+			sourceTree = "<group>";
+		};
+		F8193F57683D0573166CC12B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69D73788023D2FE7E8A0B4D3 /* Pods_DroniSocket.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FF51C1EB34F59A6CA916375F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2AECAB017C8AC14FC1CD0553 /* Pods-DroniSocket.debug.xcconfig */,
+				2BEC5EA2E29B3EB54585B10B /* Pods-DroniSocket.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6756BC50220EA90900A404E3 /* Build configuration list for PBXNativeTarget "DroniSocket" */;
 			buildPhases = (
+				5D33FBFC6915D26F0FEAB61A /* [CP] Check Pods Manifest.lock */,
 				6756BC3A220EA90300A404E3 /* Sources */,
 				6756BC3B220EA90300A404E3 /* Frameworks */,
 				6756BC3C220EA90300A404E3 /* Resources */,
+				457D7434C15E75422A643014 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,13 +162,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		457D7434C15E75422A643014 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DroniSocket/Pods-DroniSocket-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DroniSocket/Pods-DroniSocket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5D33FBFC6915D26F0FEAB61A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DroniSocket-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6756BC3A220EA90300A404E3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6756BC54220EA94300A404E3 /* SuperSocketManager.swift in Sources */,
 				6756BC44220EA90300A404E3 /* ViewController.swift in Sources */,
 				6756BC42220EA90300A404E3 /* AppDelegate.swift in Sources */,
+				6756BC56220EB62600A404E3 /* TrackingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +363,7 @@
 		};
 		6756BC51220EA90900A404E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AECAB017C8AC14FC1CD0553 /* Pods-DroniSocket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +382,7 @@
 		};
 		6756BC52220EA90900A404E3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BEC5EA2E29B3EB54585B10B /* Pods-DroniSocket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
