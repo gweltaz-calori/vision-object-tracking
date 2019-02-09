@@ -10,7 +10,10 @@ import Foundation
 import SocketIO
 
 class SuperSocketManager {
-    let manager = SocketManager(socketURL: URL(string: "http://192.168.2.25:3000")!, config: [.log(false), .compress])
+    
+    static let shared = SuperSocketManager()
+    
+    let manager = SocketManager(socketURL: URL(string: "https://dronie.vincentriva.fr")!, config: [.log(false), .compress])
     
     func connect() {
         manager.defaultSocket.connect()

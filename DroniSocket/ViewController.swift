@@ -51,6 +51,13 @@ class ViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDeleg
         videoOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "MyQueue"))
         self.captureSession.addOutput(videoOutput)
         self.captureSession.startRunning()
+        
+        
+        SuperSocketManager.shared.connect()
+        
+        SuperSocketManager.shared.on(eventName: "connect") { (data) in
+            print("connected to socket")
+        }
     }
 
     func exifOrientationForDeviceOrientation(_ deviceOrientation: UIDeviceOrientation) -> CGImagePropertyOrientation {
@@ -102,8 +109,6 @@ class ViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDeleg
             return
         }
         
-        let exifOrientation = self.exifOrientationForCurrentDeviceOrientation()
-        
         
         var trackingRequests = [VNRequest]()
         
@@ -138,7 +143,7 @@ class ViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDeleg
             
             if let first = self.inputObservations.first {
                 self.trackingView.polyRect = TrackedPolyRect(observation: first, color: UIColor.black, style: .solid)
-                print(first.boundingBox)
+                SuperSocketManager.shared.emit(eventName: "detect:client", data: ["x" : first.boundingBox.origin.x,"y" : first.boundingBox.origin.y])
                 self.trackingView.setNeedsDisplay()
             }
             
