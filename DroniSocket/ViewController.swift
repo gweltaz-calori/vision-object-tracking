@@ -19,8 +19,9 @@ class ViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDeleg
     var objectsToTrack = [TrackedPolyRect]()
     var selectedBounds:TrackedPolyRect?
     
+    var inputObservations = [VNDetectedObjectObservation]()
+    
     lazy var sequenceRequestHandler = VNSequenceRequestHandler()
-    private var trackingRequests: [VNTrackObjectRequest] = []
     
     private lazy var cameraLayer: AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
  
@@ -85,11 +86,8 @@ class ViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDeleg
         
         if let rect = selectedBounds {
             let inputObservation = VNDetectedObjectObservation(boundingBox: rect.boundingBox)
-            let request = VNTrackObjectRequest(detectedObjectObservation: inputObservation)
             
-            request.trackingLevel = .fast
-            
-            trackingRequests.append(request)
+            inputObservations.append(inputObservation)
         }
         
         clear(self)
@@ -107,33 +105,45 @@ class ViewController: UIViewController,AVCaptureVideoDataOutputSampleBufferDeleg
         let exifOrientation = self.exifOrientationForCurrentDeviceOrientation()
         
         
-        do {
-            try self.sequenceRequestHandler.perform(self.trackingRequests,
-                                                    on: pixelBuffer,
-                                                    orientation: exifOrientation)
-        } catch let error as NSError {
-            NSLog("Failed to perform SequenceRequest: %@", error)
+        var trackingRequests = [VNRequest]()
+        
+        for inputObservation in inputObservations {
+            let request = VNTrackObjectRequest(detectedObjectObservation: inputObservation)
+            request.trackingLevel = .fast
+            
+            trackingRequests.append(request)
         }
         
-        for trackingRequest in self.trackingRequests {
+        do {
+            try sequenceRequestHandler.perform(trackingRequests, on: pixelBuffer, orientation: .right)
+        } catch {
             
-            guard let results = trackingRequest.results else {
-                return
+        }
+        
+        for processedRequest in trackingRequests {
+            guard let results = processedRequest.results as? [VNObservation] else {
+                continue
+            }
+            guard let observation = results.first as? VNDetectedObjectObservation else {
+                continue
             }
             
-            guard let observation = results[0] as? VNDetectedObjectObservation else {
-                return
-            }
             
+            inputObservations = []
             
-            self.trackingView.polyRect = TrackedPolyRect(observation: observation, color: UIColor.black, style: .solid)
+            inputObservations.append(observation)
         }
         
         DispatchQueue.main.async {
-            self.trackingView.setNeedsDisplay()
+            
+            if let first = self.inputObservations.first {
+                self.trackingView.polyRect = TrackedPolyRect(observation: first, color: UIColor.black, style: .solid)
+                print(first.boundingBox)
+                self.trackingView.setNeedsDisplay()
+            }
+            
             
         }
-        
         
     
     }
